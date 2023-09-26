@@ -1,0 +1,7 @@
+.gradle
+
+### IntelliJ IDEA ###
+.idea/*
+!.idea/runConfigurations
+
+build
