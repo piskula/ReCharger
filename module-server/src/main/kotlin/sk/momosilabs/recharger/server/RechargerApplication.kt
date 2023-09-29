@@ -9,8 +9,8 @@ import org.springframework.boot.runApplication
 @SpringBootApplication
 // temporarily disable DB connect so startup will not fail
 @EnableAutoConfiguration(exclude = [DataSourceAutoConfiguration::class, HibernateJpaAutoConfiguration::class])
-open class Recharger2Application
+open class RechargerApplication
 
 fun main(args: Array<String>) {
-    runApplication<Recharger2Application>(*args)
+    runApplication<RechargerApplication>(*args)
 }
