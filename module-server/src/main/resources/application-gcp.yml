@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: ReCharger GCP
+  cloud:
+    gcp:
+      sql:
+        instance-connection-name: 'baeldung-spring-boot-bootstrap:europe-west2:baeldung-spring-boot-bootstrap-db'
+        database-name: 'baeldung_bootstrap_db'
+      logging:
+        enabled: true
