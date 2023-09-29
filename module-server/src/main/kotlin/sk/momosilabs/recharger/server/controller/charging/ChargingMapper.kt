@@ -8,8 +8,8 @@ import sk.momosilabs.recharger.server.service.charging.model.ProviderSimple
 fun Charging.toDto() = ChargingDTO(
     time = time,
     mileage = mileage,
-    percentageFrom = percentageFrom,
-    percentageTo = percentageTo,
+    percentageFrom = percentageFrom.toBigDecimal(),
+    percentageTo = percentageTo.toBigDecimal(),
     price = price,
     kWh = kWh,
     provider = provider?.toDto(),
