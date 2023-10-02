@@ -8,16 +8,17 @@ import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import sk.momosilabs.recharger.server.service.charging.ChargingPersistence
 import sk.momosilabs.recharger.server.service.charging.model.Charging
+import java.util.UUID
 
 @Service
 open class GetChargingList(
-    val persistence: ChargingPersistence,
+    private val persistence: ChargingPersistence,
 ) : GetChargingListUseCase {
 
     @Transactional(readOnly = true)
-    override fun getList(pageable: Pageable): Page<Charging> {
+    override fun getList(vehicleUuid: UUID, pageable: Pageable): Page<Charging> {
         val newestOnTop = PageRequest.of(pageable.pageNumber, pageable.pageSize, Sort.by(Sort.Order(Sort.Direction.DESC, "id")))
-        return persistence.list(1L, newestOnTop)
+        return persistence.list(vehicleUuid, newestOnTop)
     }
 
 }

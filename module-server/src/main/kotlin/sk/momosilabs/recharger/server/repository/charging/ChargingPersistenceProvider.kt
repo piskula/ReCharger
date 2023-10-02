@@ -6,14 +6,15 @@ import org.springframework.stereotype.Repository
 import org.springframework.transaction.annotation.Transactional
 import sk.momosilabs.recharger.server.service.charging.ChargingPersistence
 import sk.momosilabs.recharger.server.service.charging.model.Charging
+import java.util.UUID
 
 @Repository
 open class ChargingPersistenceProvider(
-    val repository: ChargingRepository,
+    private val repository: ChargingRepository,
 ) : ChargingPersistence {
 
     @Transactional(readOnly = true)
-    override fun list(vehicleId: Long, pageable: Pageable): Page<Charging> =
-        repository.findAllByVehicleId(vehicleId, pageable).toModel()
+    override fun list(vehicleUuid: UUID, pageable: Pageable): Page<Charging> =
+        repository.findAllByVehicleUuid(vehicleUuid, pageable).toModel()
 
 }

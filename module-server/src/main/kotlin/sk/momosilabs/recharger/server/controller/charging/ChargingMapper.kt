@@ -16,6 +16,6 @@ fun Charging.toDto() = ChargingDTO(
 )
 
 fun ProviderSimple.toDto() = ProviderSimpleDTO(
-    id = id,
+    uuid = uuid,
     name = name,
 )

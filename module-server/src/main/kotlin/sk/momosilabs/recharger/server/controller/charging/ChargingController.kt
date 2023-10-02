@@ -8,13 +8,15 @@ import sk.momosilabs.recharger.api.model.common.PageableDTO
 import sk.momosilabs.recharger.server.controller.common.toDto
 import sk.momosilabs.recharger.server.controller.common.toModel
 import sk.momosilabs.recharger.server.service.charging.getChargingList.GetChargingListUseCase
+import java.util.UUID
 
 @RestController
 class ChargingController(
     private val getChargingList: GetChargingListUseCase,
 ) : ChargingApi {
 
-    override fun getCalls(pageable: PageableDTO): PageDTO<ChargingDTO> =
-        getChargingList.getList(pageable.toModel()).toDto { chargingItem -> chargingItem.toDto() }
+    override fun listCharging(vehicleUuid: UUID, pageable: PageableDTO): PageDTO<ChargingDTO> =
+        getChargingList.getList(vehicleUuid = vehicleUuid, pageable.toModel())
+            .toDto { chargingItem -> chargingItem.toDto() }
 
 }

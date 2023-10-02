@@ -1,0 +1,26 @@
+package sk.momosilabs.recharger.server.repository.vehicle
+
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.stereotype.Repository
+import org.springframework.transaction.annotation.Transactional
+import sk.momosilabs.recharger.server.repository.charging.ChargingRepository
+import sk.momosilabs.recharger.server.service.vehicle.VehiclePersistence
+import sk.momosilabs.recharger.server.service.vehicle.model.Vehicle
+
+@Repository
+open class VehiclePersistenceProvider(
+    private val vehicleRepository: VehicleRepository,
+    private val chargingRepository: ChargingRepository,
+) : VehiclePersistence {
+
+    @Transactional(readOnly = true)
+    override fun list(pageable: Pageable): Page<Vehicle> =
+        vehicleRepository.findAll(pageable).toModel()
+
+    @Transactional(readOnly = true)
+    override fun getCurrentMileagesForVehicles(vehicleIds: Set<Long>): Map<Long, Int> =
+        chargingRepository.getCurrentMileagesForVehicles(vehicleIds)
+            .associate { Pair(it.first, it.second) }
+
+}

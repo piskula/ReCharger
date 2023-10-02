@@ -1,6 +1,8 @@
 package sk.momosilabs.recharger.api.model.charging
 
+import java.util.UUID
+
 data class ProviderSimpleDTO(
-    val id: Long,
+    val uuid: UUID,
     val name: String,
 )

@@ -9,6 +9,7 @@ import java.time.ZoneOffset
 
 fun Page<ChargingEntity>.toModel() = map {
     Charging(
+        uuid = it.uuid,
         time = it.time.atOffset(ZoneOffset.UTC).toZonedDateTime(),
         mileage = it.mileage,
         percentageFrom = it.percentageFrom,
@@ -20,6 +21,6 @@ fun Page<ChargingEntity>.toModel() = map {
 }
 
 fun ProviderEntity.toModel() = ProviderSimple(
-    id = id,
+    uuid = uuid,
     name = name,
 )
