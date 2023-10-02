@@ -33,6 +33,8 @@ dependencies {
     implementation("org.flywaydb:flyway-mysql:9.22.2")
     implementation("mysql:mysql-connector-java:8.0.33")
     implementation("org.springframework.cloud:spring-cloud-gcp-starter:1.2.8.RELEASE")
+    // needed for com.google.cloud.sql.mysql.SocketFactory
+    implementation("org.springframework.cloud:spring-cloud-gcp-starter-sql-mysql:1.2.8.RELEASE")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

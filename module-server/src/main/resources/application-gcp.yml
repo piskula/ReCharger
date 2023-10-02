@@ -3,8 +3,9 @@ spring:
     name: ReCharger GCP
   cloud:
     gcp:
-      sql:
-        instance-connection-name: 'baeldung-spring-boot-bootstrap:europe-west2:baeldung-spring-boot-bootstrap-db'
-        database-name: 'baeldung_bootstrap_db'
       logging:
         enabled: true
+  datasource:
+    url: "<JDBC_LINK_SEE_README>"
+    username: "<SPECIFY_IF_NOT_ROOT>"
+    password: "<USER_PASS_IF_CONFIGURED>"
