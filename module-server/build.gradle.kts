@@ -27,6 +27,9 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
+    // validate JWT tokens from clients
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
+
     // make swagger documentation available
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 
