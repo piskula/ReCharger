@@ -15,8 +15,8 @@ open class VehiclePersistenceProvider(
 ) : VehiclePersistence {
 
     @Transactional(readOnly = true)
-    override fun list(pageable: Pageable): Page<Vehicle> =
-        vehicleRepository.findAll(pageable).toModel()
+    override fun list(userIdentifier: String, pageable: Pageable): Page<Vehicle> =
+        vehicleRepository.findAllByAccountProviderIdentifier(userIdentifier, pageable).toModel()
 
     @Transactional(readOnly = true)
     override fun getCurrentMileagesForVehicles(vehicleIds: Set<Long>): Map<Long, Int> =

@@ -1,14 +1,12 @@
-package sk.momosilabs.recharger.server.entity.vehicle
+package sk.momosilabs.recharger.server.entity.account
 
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
-import jakarta.persistence.ManyToOne
 import jakarta.validation.constraints.NotNull
-import sk.momosilabs.recharger.server.entity.account.AccountEntity
 import java.util.UUID
 
-@Entity(name = "vehicle")
-class VehicleEntity(
+@Entity(name = "account")
+class AccountEntity(
 
     @Id
     @field:NotNull
@@ -17,13 +15,13 @@ class VehicleEntity(
     @field:NotNull
     val uuid: UUID = UUID.randomUUID(),
 
-    @ManyToOne
     @field:NotNull
-    val account: AccountEntity,
+    val provider: String,
 
     @field:NotNull
-    val name: String,
+    val providerIdentifier: String,
 
     @field:NotNull
-    val mileage: Int,
+    val email: String,
+
 )

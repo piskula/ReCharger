@@ -6,7 +6,7 @@ import sk.momosilabs.recharger.server.service.vehicle.model.Vehicle
 
 interface VehiclePersistence {
 
-    fun list(pageable: Pageable): Page<Vehicle>
+    fun list(userIdentifier: String, pageable: Pageable): Page<Vehicle>
 
     fun getCurrentMileagesForVehicles(vehicleIds: Set<Long>): Map<Long, Int>
 

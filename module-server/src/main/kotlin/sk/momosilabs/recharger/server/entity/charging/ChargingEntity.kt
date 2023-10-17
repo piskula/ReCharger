@@ -9,7 +9,6 @@ import sk.momosilabs.recharger.server.entity.provider.ProviderEntity
 import sk.momosilabs.recharger.server.entity.vehicle.VehicleEntity
 import java.math.BigDecimal
 import java.time.LocalDateTime
-import java.time.ZonedDateTime
 import java.util.UUID
 
 @Entity(name = "charging")
