@@ -19,3 +19,23 @@ spring:
 ```
 
 and then run `./gradlew :module-server:appengineDeploy`
+
+### Database port-forward
+If you need to connect to DB in GCloud, use
+
+`cloud-sql-proxy --port <PORT> <CONNECTION_NAME>`
+
+## Security (OAuth)
+App is built for users authorized via Google Login. For that you need to create (or use existing) OAuth Credentials
+in Google Cloud Console. Then just add `client-id` and `client-secret` into [application.yml](module-server/src/main/resources/application.yml):
+```yaml
+spring:
+#  ...
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: "<GOOGLE_CLIENT_ID>"
+            client-secret: "<GOOGLE_CLIENT_SECRET>"
+```
