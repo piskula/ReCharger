@@ -25,5 +25,9 @@ class VehicleEntity(
     val name: String,
 
     @field:NotNull
-    val mileage: Int,
+    val mileageInitial: Int,
+
+    @field:NotNull
+    val percentageInitial: Int,
+
 )

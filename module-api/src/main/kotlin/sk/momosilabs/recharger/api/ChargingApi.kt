@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiOperation
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import sk.momosilabs.recharger.api.model.charging.ChargingDTO
+import sk.momosilabs.recharger.api.model.charging.ChargingMonthDTO
 import sk.momosilabs.recharger.api.model.common.PageDTO
 import sk.momosilabs.recharger.api.model.common.PageableDTO
 import java.util.UUID
@@ -26,5 +27,14 @@ interface ChargingApi {
     )
     @GetMapping(ENDPOINT_API_CHARGING)
     fun listCharging(@PathVariable vehicleUuid: UUID, pageable: PageableDTO): PageDTO<ChargingDTO>
+
+    @ApiOperation("List all chargings of vehicle")
+    @ApiImplicitParams(
+        ApiImplicitParam(paramType = "query", name = "page", dataType = "integer"),
+        ApiImplicitParam(paramType = "query", name = "size", dataType = "integer"),
+//        ApiImplicitParam(paramType = "query", name = "sort", dataType = "string")
+    )
+    @GetMapping("$ENDPOINT_API_CHARGING/perMonth")
+    fun listPerMonth(@PathVariable vehicleUuid: UUID, pageable: PageableDTO): PageDTO<ChargingMonthDTO>
 
 }

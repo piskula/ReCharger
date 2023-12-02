@@ -2,11 +2,14 @@ package sk.momosilabs.recharger.server.entity.charging
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
+import jakarta.persistence.EnumType
+import jakarta.persistence.Enumerated
 import jakarta.persistence.Id
 import jakarta.persistence.ManyToOne
 import jakarta.validation.constraints.NotNull
 import sk.momosilabs.recharger.server.entity.provider.ProviderEntity
 import sk.momosilabs.recharger.server.entity.vehicle.VehicleEntity
+import sk.momosilabs.recharger.server.service.charging.model.CurrentType
 import java.math.BigDecimal
 import java.time.LocalDateTime
 import java.util.UUID
@@ -37,8 +40,10 @@ class ChargingEntity(
     val percentageTo: Int,
     @field:NotNull
     val price: BigDecimal,
-    @Column(name = "kwh")
-    val kWh: BigDecimal?,
+
+    val kwh: BigDecimal?,
+    @Enumerated(EnumType.STRING)
+    val currentType: CurrentType?,
 
     @ManyToOne
     val provider: ProviderEntity?,

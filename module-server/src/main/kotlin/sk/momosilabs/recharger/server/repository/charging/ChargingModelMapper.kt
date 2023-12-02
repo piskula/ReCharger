@@ -15,7 +15,7 @@ fun Page<ChargingEntity>.toModel() = map {
         percentageFrom = it.percentageFrom,
         percentageTo = it.percentageTo,
         price = it.price,
-        kWh = it.kWh,
+        kWh = it.kwh,
         provider = it.provider?.toModel(),
     )
 }
