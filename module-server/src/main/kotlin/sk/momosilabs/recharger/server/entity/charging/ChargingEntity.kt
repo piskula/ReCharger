@@ -18,30 +18,30 @@ import java.util.UUID
 class ChargingEntity(
 
     @Id
-    @field:NotNull
-    val id: Long = 0L,
+    @field:NotNull val id: Long = 0L,
 
-    @field:NotNull
-    val uuid: UUID = UUID.randomUUID(),
+    @field:NotNull val uuid: UUID = UUID.randomUUID(),
 
     @ManyToOne
-    @field:NotNull
-    val vehicle: VehicleEntity,
+    @field:NotNull val vehicle: VehicleEntity,
 
-    @field:NotNull
-    val time: LocalDateTime,
-    @field:NotNull
-    val mileage: Int,
+    @field:NotNull val time: LocalDateTime,
+
+    @field:NotNull val mileage: Int,
+
     @Column(columnDefinition = "TINYINT")
-    @field:NotNull
-    val percentageFrom: Int,
+    @field:NotNull val percentageSpent: Int,
+
     @Column(columnDefinition = "TINYINT")
-    @field:NotNull
-    val percentageTo: Int,
-    @field:NotNull
-    val price: BigDecimal,
+    @field:NotNull val percentageFrom: Int,
+
+    @Column(columnDefinition = "TINYINT")
+    @field:NotNull val percentageTo: Int,
+
+    @field:NotNull val price: BigDecimal,
 
     val kwh: BigDecimal?,
+
     @Enumerated(EnumType.STRING)
     val currentType: CurrentType?,
 
