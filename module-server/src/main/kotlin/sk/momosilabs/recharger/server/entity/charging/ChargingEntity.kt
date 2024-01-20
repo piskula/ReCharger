@@ -30,9 +30,6 @@ class ChargingEntity(
     @field:NotNull val mileage: Int,
 
     @Column(columnDefinition = "TINYINT")
-    @field:NotNull val percentageSpent: Int,
-
-    @Column(columnDefinition = "TINYINT")
     @field:NotNull val percentageFrom: Int,
 
     @Column(columnDefinition = "TINYINT")
@@ -47,4 +44,11 @@ class ChargingEntity(
 
     @ManyToOne
     val provider: ProviderEntity?,
+
+    @Column(columnDefinition = "TINYINT")
+    @field:NotNull val percentageSpent: Int,
+
+    @Column(columnDefinition = "SMALLINT")
+    @field:NotNull val distanceDriven: Int,
+
 )

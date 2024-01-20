@@ -10,7 +10,7 @@ fun Page<VehicleEntity>.toModel() = map {
         id = it.id,
         uuid = it.uuid,
         name = it.name,
-        mileage = 0,
+        mileage = it.mileageInitial,
     )
 }
 

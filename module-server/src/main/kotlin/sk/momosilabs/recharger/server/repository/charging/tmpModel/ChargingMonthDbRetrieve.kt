@@ -5,10 +5,9 @@ import java.math.BigDecimal
 interface ChargingMonthDbRetrieve {
     val year: Int
     val month: Int
-    val mileageMax: Int
+    val distanceDriven: Int
     val percentageSpent: Int
-    val percentageSpentWhenKwhKnown: Int
-    val kwhKnown: BigDecimal
+    val kwhPercentageRatio: BigDecimal
     val priceTotal: BigDecimal
     val chargingCount: Int
 }
